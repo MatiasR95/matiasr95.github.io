@@ -2,6 +2,7 @@
 title: "Working with messy numbers: mean, median, std dev & CV"
 date: "2026-06-11"
 excerpt: "Numbers almost never match perfectly — and that's okay. 🧮"
+cover: "/blog/stats-discrepancies.png"
 tags: ["statistics", "analytics", "dataliteracy"]
 ---
 📊 Numbers almost never match perfectly — and that's okay. 🧮

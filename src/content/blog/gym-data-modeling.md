@@ -2,6 +2,7 @@
 title: "I learned data modeling by trying not to go broke"
 date: "2026-06-10"
 excerpt: "A bounced payment taught me more about data modeling than any textbook ever did."
+cover: "/blog/gym-data-modeling.png"
 tags: ["data-modeling", "sql", "data-warehouse", "career"]
 ---
 💸📊 A bounced payment taught me more about data modeling than any textbook ever did.

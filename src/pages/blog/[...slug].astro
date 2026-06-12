@@ -34,6 +34,14 @@ const fmt = (d: Date) =>
         </h1>
       </header>
 
+      {
+        post.data.cover && (
+          <div class="mt-8 overflow-hidden rounded-2xl border border-line">
+            <img src={post.data.cover} alt={post.data.title} class="w-full" loading="eager" />
+          </div>
+        )
+      }
+
       <div class="prose-post mt-8">
         <Content />
       </div>

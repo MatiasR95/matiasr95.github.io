@@ -9,7 +9,7 @@
 //
 // Override the source dir with: POSTS_DIR="/abs/path/to/posts/published" node scripts/import-posts.mjs
 
-import { readdir, readFile, writeFile, mkdir } from 'node:fs/promises';
+import { readdir, readFile, writeFile, mkdir, copyFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -17,10 +17,14 @@ import { fileURLToPath } from 'node:url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(__dirname, '..');
 const outDir = path.join(repoRoot, 'src', 'content', 'blog');
+const publicBlogDir = path.join(repoRoot, 'public', 'blog');
 
 const SRC =
   process.env.POSTS_DIR ||
   path.resolve(repoRoot, '..', 'LinkedIn Writer', 'posts', 'published');
+
+// Where the post media renders live (sibling of posts/published in the content repo).
+const rendersDir = path.resolve(SRC, '..', '..', 'assets', 'renders');
 
 // --- tiny frontmatter parser (no deps) ---------------------------------------
 function parseFrontmatter(raw) {
@@ -79,6 +83,7 @@ async function main() {
     process.exit(1);
   }
   await mkdir(outDir, { recursive: true });
+  await mkdir(publicBlogDir, { recursive: true });
 
   const files = (await readdir(SRC)).filter((f) => f.endsWith('.md'));
   let written = 0;
@@ -104,11 +109,23 @@ async function main() {
     const tags = Array.isArray(data.topic_tags) ? data.topic_tags : [];
     const excerpt = makeExcerpt(en);
 
+    // Cover image: prefer `media:` frontmatter, else the first renders/*.png in the body.
+    let coverField = null;
+    const mediaRef = data.media || (fullBody.match(/assets\/renders\/[\w-]+\.png/) || [])[0];
+    if (mediaRef) {
+      const srcImg = path.join(rendersDir, path.basename(mediaRef));
+      if (existsSync(srcImg)) {
+        await copyFile(srcImg, path.join(publicBlogDir, `${slug}.png`));
+        coverField = `/blog/${slug}.png`;
+      }
+    }
+
     const front = [
       '---',
       `title: "${esc(title)}"`,
       `date: "${date}"`,
       `excerpt: "${esc(excerpt)}"`,
+      ...(coverField ? [`cover: "${coverField}"`] : []),
       `tags: [${tags.map((t) => `"${esc(t)}"`).join(', ')}]`,
       '---',
       '',

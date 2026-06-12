@@ -2,6 +2,7 @@
 title: "Attendance slips before anyone cancels — leading vs lagging indicators"
 date: "2026-06-08"
 excerpt: "One of the most useful concepts in analytics, I picked up almost by accident — watching a side project run on autopilot."
+cover: "/blog/leading-vs-lagging.png"
 tags: ["analytics", "metrics", "ai", "career"]
 ---
 📊 One of the most useful concepts in analytics, I picked up almost by accident — watching a side project run on autopilot.

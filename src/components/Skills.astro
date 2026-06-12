@@ -1,13 +1,25 @@
 ---
-import { skillGroups } from '../data/site';
+import { skillGroups, coreToolkit } from '../data/site';
 ---
 
 <section id="skills" class="section bg-white">
   <div class="container-page">
-    <div class="mb-12 max-w-2xl" data-reveal>
+    <div class="mb-10 max-w-2xl" data-reveal>
       <p class="eyebrow">Skills &amp; tech stack</p>
       <span class="rule-gold mt-4"></span>
       <h2 class="mt-6 font-display text-3xl font-extrabold text-ink sm:text-4xl">The tools I reach for.</h2>
+    </div>
+
+    <!-- Core toolkit today -->
+    <div class="mb-10 rounded-2xl border border-gold/30 bg-gold/[0.04] p-6 sm:p-7" data-reveal>
+      <p class="text-xs font-semibold uppercase tracking-[0.16em] text-gold">Most-used today</p>
+      <div class="mt-4 flex flex-wrap gap-3">
+        {
+          coreToolkit.map((t) => (
+            <span class="rounded-full bg-ink px-5 py-2 text-sm font-semibold text-white">{t}</span>
+          ))
+        }
+      </div>
     </div>
 
     <div class="grid gap-6 sm:grid-cols-2">
