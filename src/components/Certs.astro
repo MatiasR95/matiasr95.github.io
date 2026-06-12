@@ -1,0 +1,40 @@
+---
+import { Icon } from 'astro-icon/components';
+import { certifications, education } from '../data/site';
+---
+
+<section class="section bg-white">
+  <div class="container-page">
+    <div class="grid gap-12 lg:grid-cols-2">
+      <div data-reveal>
+        <p class="eyebrow">Certifications</p>
+        <span class="rule-gold mt-4"></span>
+        <ul class="mt-8 space-y-3">
+          {
+            certifications.map((c) => (
+              <li class="flex items-start gap-3 text-[15px] text-ink/75">
+                <Icon name="lucide:badge-check" class="mt-0.5 h-5 w-5 shrink-0 text-gold" />
+                <span>{c}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div data-reveal>
+        <p class="eyebrow">Education</p>
+        <span class="rule-gold mt-4"></span>
+        <ul class="mt-8 space-y-6">
+          {
+            education.map((e) => (
+              <li>
+                <p class="font-display font-bold text-ink">{e.school}</p>
+                <p class="mt-1 text-sm text-ink/60">{e.detail}</p>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

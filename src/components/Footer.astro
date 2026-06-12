@@ -1,0 +1,36 @@
+---
+import { Icon } from 'astro-icon/components';
+import { site } from '../data/site';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-line bg-white">
+  <div class="container-page">
+    <div class="flex flex-col items-center justify-between gap-6 py-10 sm:flex-row">
+      <div class="text-center sm:text-left">
+        <img src="/brand/signature.png" alt="Matías Rossi" width="180" height="60" class="mx-auto h-10 w-auto sm:mx-0" />
+        <p class="mt-1 text-xs font-medium uppercase tracking-[0.16em] text-muted">Data Warehouse Analyst</p>
+      </div>
+
+      <div class="flex items-center gap-5">
+        <a href={site.socials.linkedin} target="_blank" rel="noopener" aria-label="LinkedIn" class="link-quiet">
+          <Icon name="lucide:linkedin" class="h-5 w-5" />
+        </a>
+        <a href={site.socials.instagram} target="_blank" rel="noopener" aria-label="Instagram" class="link-quiet">
+          <Icon name="lucide:instagram" class="h-5 w-5" />
+        </a>
+        <a href={site.socials.twitter} target="_blank" rel="noopener" aria-label="X" class="link-quiet">
+          <Icon name="lucide:twitter" class="h-5 w-5" />
+        </a>
+        <a href={`mailto:${site.email}`} aria-label="Email" class="link-quiet">
+          <Icon name="lucide:mail" class="h-5 w-5" />
+        </a>
+      </div>
+    </div>
+
+    <div class="border-t border-line py-5 text-center text-xs text-muted">
+      © {year} Matías Rossi · Built with Astro, hosted on GitHub Pages.
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,18 @@
+---
+import { highlights } from '../data/site';
+---
+
+<section class="border-y border-line bg-white">
+  <div class="container-page">
+    <dl class="grid grid-cols-2 gap-x-6 gap-y-8 py-10 lg:grid-cols-4">
+      {
+        highlights.map((h) => (
+          <div data-reveal>
+            <dt class="font-display text-2xl font-extrabold text-gold sm:text-3xl">{h.value}</dt>
+            <dd class="mt-1 text-sm leading-snug text-ink/60">{h.label}</dd>
+          </div>
+        ))
+      }
+    </dl>
+  </div>
+</section>

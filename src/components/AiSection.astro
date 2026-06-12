@@ -1,0 +1,45 @@
+---
+import { Icon } from 'astro-icon/components';
+import { aiPoints } from '../data/site';
+---
+
+<section id="ai" class="section relative overflow-hidden bg-night text-white">
+  <div class="pointer-events-none absolute inset-0" aria-hidden="true">
+    <div class="absolute left-[10%] top-[20%] h-1.5 w-1.5 rounded-full bg-gold-bright/70"></div>
+    <div class="absolute right-[12%] top-[30%] h-12 w-12 rounded-xl border border-gold-bright/20"></div>
+    <div class="absolute right-[24%] bottom-[18%] h-2 w-2 rounded-full bg-gold-bright/50"></div>
+  </div>
+
+  <div class="container-page relative">
+    <div class="mb-12 max-w-2xl" data-reveal>
+      <p class="text-xs font-semibold uppercase tracking-[0.18em] text-gold-bright/80">How I work</p>
+      <span class="mt-4 block h-[3px] w-14 rounded-full bg-gold-bright"></span>
+      <h2 class="mt-6 font-display text-3xl font-extrabold sm:text-4xl">
+        How I work with <span class="text-gold-bright">AI</span>.
+      </h2>
+      <p class="mt-5 text-lg leading-relaxed text-white/70">
+        AI doesn’t replace the fundamentals — it multiplies them. Here’s where it actually earns its keep
+        in my day.
+      </p>
+    </div>
+
+    <div class="grid gap-6 md:grid-cols-3">
+      {
+        aiPoints.map((p) => (
+          <article class="rounded-2xl border border-white/10 bg-night-soft p-7" data-reveal>
+            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-gold-bright/10 text-gold-bright">
+              <Icon name={p.icon} class="h-6 w-6" />
+            </div>
+            <h3 class="mt-5 font-display text-lg font-bold">{p.title}</h3>
+            <p class="mt-2 text-[15px] leading-relaxed text-white/65">{p.body}</p>
+          </article>
+        ))
+      }
+    </div>
+
+    <p class="mt-10 max-w-3xl text-[15px] leading-relaxed text-white/55" data-reveal>
+      I practice what I preach: I built an AI-assisted content engine (with Claude Code) that drafts, designs,
+      and schedules my own LinkedIn content — <a href="#projects" class="font-semibold text-gold-bright underline-offset-4 hover:underline">see Projects</a>.
+    </p>
+  </div>
+</section>

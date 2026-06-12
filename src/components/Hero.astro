@@ -1,0 +1,69 @@
+---
+import { Icon } from 'astro-icon/components';
+import { site } from '../data/site';
+---
+
+<section id="top" class="relative overflow-hidden bg-paper pt-32 pb-20 sm:pt-40 sm:pb-28">
+  <!-- floating gold accents -->
+  <div class="pointer-events-none absolute inset-0" aria-hidden="true">
+    <div class="absolute right-[8%] top-[18%] h-2 w-2 rounded-full bg-gold/60"></div>
+    <div class="absolute left-[6%] top-[42%] h-1.5 w-1.5 rounded-full bg-gold/40"></div>
+    <div class="absolute right-[14%] bottom-[14%] h-10 w-10 rounded-lg border border-gold/30"></div>
+  </div>
+
+  <div class="container-page relative">
+    <div class="grid items-center gap-12 lg:grid-cols-[1.15fr_0.85fr]">
+      <!-- copy -->
+      <div data-reveal>
+        <p class="eyebrow mb-5">Data Warehouse &amp; BI Analyst · Argentina → US team</p>
+        <h1 class="font-display text-4xl font-extrabold leading-[1.08] text-ink sm:text-5xl lg:text-6xl">
+          Turning business questions into
+          <span class="relative whitespace-nowrap text-gold">
+            decision-ready
+            <span class="absolute -bottom-1 left-0 h-[3px] w-full rounded-full bg-gold/40"></span>
+          </span>
+          data.
+        </h1>
+        <p class="mt-6 max-w-xl text-lg leading-relaxed text-ink/70">
+          I’m Matías Rossi — a Data Warehouse Analyst at Assurant supporting the Global Automotive
+          business across the US and LATAM. I build the trusted data layer behind better decisions
+          with SQL, BI, and AI-assisted workflows.
+        </p>
+
+        <div class="mt-9 flex flex-wrap items-center gap-3">
+          <a href="#projects" class="btn-primary">
+            View my work
+            <Icon name="lucide:arrow-down" class="h-4 w-4" />
+          </a>
+          <a href={site.socials.linkedin} target="_blank" rel="noopener" class="btn-ghost">
+            <Icon name="lucide:linkedin" class="h-4 w-4" />
+            Connect on LinkedIn
+          </a>
+        </div>
+      </div>
+
+      <!-- portrait / brand mark -->
+      <div class="relative mx-auto w-full max-w-sm" data-reveal>
+        <div class="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-gold/15 to-transparent blur-md" aria-hidden="true"></div>
+        <div class="card relative overflow-hidden rounded-[2rem] p-6">
+          <div class="aspect-square overflow-hidden rounded-2xl bg-paper ring-1 ring-gold/30">
+            <img
+              src="/brand/avatar-laptop.png"
+              alt="Illustration of Matías Rossi working at a laptop"
+              width="640"
+              height="640"
+              loading="eager"
+              class="h-full w-full object-cover"
+            />
+          </div>
+          <div class="mt-5 text-center">
+            <p class="font-display text-xl font-bold text-ink">Matías Rossi</p>
+            <p class="mt-1 text-xs font-semibold uppercase tracking-[0.18em] text-muted">
+              Data Warehouse Analyst
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

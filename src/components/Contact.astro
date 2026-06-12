@@ -1,0 +1,36 @@
+---
+import { Icon } from 'astro-icon/components';
+import { site } from '../data/site';
+---
+
+<section id="contact" class="section relative overflow-hidden bg-night text-white">
+  <div class="pointer-events-none absolute inset-0" aria-hidden="true">
+    <div class="absolute left-[14%] top-[26%] h-2 w-2 rounded-full bg-gold-bright/50"></div>
+    <div class="absolute right-[10%] bottom-[24%] h-10 w-10 rounded-lg border border-gold-bright/20"></div>
+  </div>
+
+  <div class="container-page relative">
+    <div class="mx-auto max-w-2xl text-center" data-reveal>
+      <p class="text-xs font-semibold uppercase tracking-[0.18em] text-gold-bright/80">Let’s connect</p>
+      <h2 class="mt-5 font-display text-3xl font-extrabold sm:text-4xl">
+        Open to talking <span class="text-gold-bright">data, BI &amp; AI</span>.
+      </h2>
+      <p class="mt-5 text-lg leading-relaxed text-white/70">
+        Whether it’s a question, an idea, or just to say hi — I’d love to hear from you.
+      </p>
+
+      <div class="mt-9 flex flex-wrap items-center justify-center gap-3">
+        <a href={`mailto:${site.email}`} class="btn bg-white text-ink hover:bg-gold-bright">
+          <Icon name="lucide:mail" class="h-4 w-4" />
+          {site.email}
+        </a>
+        <a href={site.socials.linkedin} target="_blank" rel="noopener" class="btn border border-white/25 text-white hover:border-gold-bright hover:text-gold-bright">
+          <Icon name="lucide:linkedin" class="h-4 w-4" />
+          LinkedIn
+        </a>
+      </div>
+
+      <p class="mt-6 text-sm text-white/45">{site.location}</p>
+    </div>
+  </div>
+</section>
