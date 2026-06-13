@@ -8,7 +8,7 @@ import { highlights } from '../data/site';
       {
         highlights.map((h) => (
           <div data-reveal>
-            <dt class="font-display text-2xl font-extrabold text-gold sm:text-3xl">{h.value}</dt>
+            <dt class="font-display text-2xl font-extrabold text-gold sm:text-3xl" data-countup>{h.value}</dt>
             <dd class="mt-1 text-sm leading-snug text-ink/60">{h.label}</dd>
           </div>
         ))
@@ -16,3 +16,38 @@ import { highlights } from '../data/site';
     </dl>
   </div>
 </section>
+
+<script>
+  // Count up the numeric highlights when they scroll into view.
+  const nums = document.querySelectorAll<HTMLElement>('[data-countup]');
+  const animate = (el: HTMLElement) => {
+    const m = (el.textContent || '').trim().match(/^(\d+)(.*)$/s);
+    if (!m) return;
+    const target = parseInt(m[1], 10);
+    const suffix = m[2];
+    const start = performance.now();
+    const dur = 900;
+    const step = (now: number) => {
+      const t = Math.min((now - start) / dur, 1);
+      const eased = 1 - Math.pow(1 - t, 3);
+      el.textContent = Math.round(eased * target) + suffix;
+      if (t < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            animate(e.target as HTMLElement);
+            io.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.6 }
+    );
+    nums.forEach((n) => io.observe(n));
+  }
+</script>
+

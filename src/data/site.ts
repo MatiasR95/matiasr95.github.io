@@ -17,7 +17,7 @@ export const site = {
   seo: {
     title: 'Matías Rossi — Data Warehouse & BI Analyst | SQL, Excel & AI Automation',
     description:
-      'Data Warehouse Analyst at Assurant, on the Global Automotive Data team. I turn raw data into trusted, decision-ready insight with SQL, Excel, and AI-driven automation — building workflows, apps, and data-backed business solutions.',
+      'Data Warehouse Analyst at Assurant, on the Global Automotive Data team. I turn raw data into insight and efficiency, and use AI and automation to build workflows, apps, and data-backed solutions — with SQL, Excel, Power BI, and Tableau.',
   },
 };
 
@@ -46,12 +46,41 @@ export const pillars = [
   {
     icon: 'lucide:bar-chart-3',
     title: 'Turn data into decisions',
-    body: 'Excel, Power BI, and Looker Studio analysis that answers the business question — not just plots the numbers.',
+    body: 'Excel, Power BI, and Tableau analysis that turns raw data into decisions, insight, and efficiency — not just charts.',
   },
   {
     icon: 'lucide:sparkles',
-    title: 'Build with AI',
-    body: 'AI-assisted SQL, automation, and even small apps and data-backed business solutions — so the routine is fast and the thinking gets the time.',
+    title: 'Automate & build with AI',
+    body: 'Spot where AI and automation can cut manual work, then build it — automated workflows and small apps that move the business forward.',
+  },
+];
+
+// Competencies — how I work. (Mirrors what good digital/AI transformation work needs.)
+export const strengths = [
+  {
+    icon: 'lucide:brain',
+    title: 'Analytical thinking',
+    body: 'I dig past the dashboard to the decision — the leading signal, the grain trap, the number that actually matters.',
+  },
+  {
+    icon: 'lucide:rocket',
+    title: 'Digital acumen',
+    body: 'Comfortable across the modern data + AI stack, and quick to fold a new tool into how I work.',
+  },
+  {
+    icon: 'lucide:compass',
+    title: 'Curiosity & learning agility',
+    body: 'A career-switcher who learns in public — I test the hype, keep what’s real, and ship it.',
+  },
+  {
+    icon: 'lucide:users',
+    title: 'Collaboration & communication',
+    body: 'I bridge data and business, and I’ve taught dashboard storytelling to working professionals in two languages.',
+  },
+  {
+    icon: 'lucide:repeat',
+    title: 'Process improvement',
+    body: 'I look for the manual, repetitive step and ask: can data or automation do this better?',
   },
 ];
 

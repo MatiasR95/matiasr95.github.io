@@ -1,0 +1,30 @@
+---
+import { Icon } from 'astro-icon/components';
+import { strengths } from '../data/site';
+---
+
+<section id="strengths" class="section bg-paper">
+  <div class="container-page">
+    <div class="mb-12 max-w-2xl" data-reveal>
+      <p class="eyebrow">How I work</p>
+      <span class="rule-gold mt-4"></span>
+      <h2 class="mt-6 font-display text-3xl font-extrabold text-ink sm:text-4xl">What I bring to a team.</h2>
+    </div>
+
+    <div class="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        strengths.map((s) => (
+          <div class="flex gap-4" data-reveal>
+            <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gold/10 text-gold">
+              <Icon name={s.icon} class="h-5 w-5" />
+            </div>
+            <div>
+              <h3 class="font-display text-base font-bold text-ink">{s.title}</h3>
+              <p class="mt-1.5 text-sm leading-relaxed text-ink/65">{s.body}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
